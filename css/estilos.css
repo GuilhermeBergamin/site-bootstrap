@@ -1,0 +1,23 @@
+.menu-borda {
+    border-bottom: 1px solid #0ff;
+}
+
+.sombra-carrosel {
+    box-shadow: 0px 10px 50px #000;
+}
+
+.btn-secondary {
+    background-color: rgb(9, 138, 9);
+}
+
+.btn-secondary:hover {
+    background-color: rgb(91, 163, 91);
+}
+
+.btn-secondarytwo {
+    background-color: rgb(221, 9, 9);
+}
+
+.btn-secondarytwo:hover {
+    background-color:rgb(122, 53, 53) ;
+}
