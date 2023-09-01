@@ -67,5 +67,42 @@ pesquisaCep.addEventListener('blur', () => {
     }
 });
 
-// evento mostrar dados cadastrados no modal
-const cadast
+// invalida a submissão de dados do formulário
+form.onsubmit = () => false;
+
+// evento que preenche automaticamente o endereço de acordo com o cep preenchido
+pesquisaCep.addEventListener('blur', () => {
+
+    // elimina caracteres especiais deixando somente números
+    let cep = pesquisaCep.value.replace(/\D/g, '');
+
+    // verifica se o campo cep possui valor informado
+    if (cep != '') {
+
+        // valida o cep
+        let validaCep = /^[0-9]{8}$/;
+
+        // valida formato do cep
+        if (validaCep.test(cep)) {
+
+            // cria elemento js
+            let script = document.createElement('script');
+
+            // sincroniza callback
+            script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meuCallback';
+
+            // insere o script no documento e carrega o conteúdo
+            document.body.appendChild(script);
+
+        }
+        else {
+
+            // cep inválido
+            limpaForm();
+            alert('CEP inválido.');
+
+        }
+        
+    }
+
+});
